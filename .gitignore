@@ -27,8 +27,6 @@
 /.env.local
 /api/tmp/*
 
-/api/public
-
 client/node_modules
 client/yarn-error.log
 api/tmp/*
