@@ -3,6 +3,8 @@ version: '3'
 services:
 
   api:
+    labels:
+      shipyard.before: 'rake db:create; rake db:migrate'
     build: 'api'
     environment:
       POSTGRES_USER: 'trains'
