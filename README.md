@@ -21,3 +21,11 @@ Other components: Redux, GraphQL, Typescript, Material UI
 - Visit the app at [http://localhost:3000](http://localhost:3000).
 - Make your code changes! The app should be live-reloaded whenever you save.
 
+
+Installing on your own machine, assuming rails and ruby environment setup:
+- set MTA_API_KEY
+- rails s -p 3001
+- cd client
+- yarn install
+- yarn start
+- visit localhost:3000

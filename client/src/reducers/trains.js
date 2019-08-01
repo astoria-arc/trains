@@ -7,7 +7,7 @@ import { createReducer } from './createReducer';
 
 const initialState = {
     trains: [],
-    direction: "Manhattan",
+    direction: localStorage.getItem('direction') || "Manhattan",
 };
 
 export default createReducer(initialState, {
