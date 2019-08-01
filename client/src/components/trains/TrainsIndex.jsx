@@ -87,7 +87,7 @@ class TrainsIndex extends Component {
   }
 
   componentDidMount() {
-    this.props.actions.trainsActions.getTrains();
+    this.props.actions.trainsActions.getTrains(this.props.selectedStation);
     this.props.actions.stationsActions.getStations();
     this.pollTrains()
   }
@@ -129,7 +129,7 @@ class TrainsIndex extends Component {
   pollTrains() {
     window.setInterval(
       function() {
-        this.props.actions.trainsActions.getTrains();
+        this.props.actions.trainsActions.getTrains(this.props.selectedStation);
     }.bind(this), 30000)
   }
 
