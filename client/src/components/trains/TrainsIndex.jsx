@@ -89,6 +89,7 @@ class TrainsIndex extends Component {
   componentDidMount() {
     this.props.actions.trainsActions.getTrains();
     this.props.actions.stationsActions.getStations();
+    this.pollTrains()
   }
 
   trainImage(trainName) {
@@ -100,6 +101,7 @@ class TrainsIndex extends Component {
   }
 
   directionToggle(direction) {
+    localStorage.setItem('direction', direction);
     this.props.actions.trainsActions.updateDirection(direction);
   }
 
@@ -112,22 +114,23 @@ class TrainsIndex extends Component {
   }
 
   selectDestination(e) {
+    localStorage.setItem('station', e.target.value);
     this.props.actions.stationsActions.selectStation(e.target.value);
   }
 
   buttonClass(buttonName, classes) {
-    console.log(buttonName)
-    console.log(this.props.direction)
-    console.log(buttonName == this.props.direction)
     if (buttonName == this.props.direction) {
-      console.log("returning")
-      console.log(classes.activeButton)
       return classes.activeButton
     } else {
-      console.log("returning")
-      console.log(classes.button)
       return classes.button
     }
+  }
+
+  pollTrains() {
+    window.setInterval(
+      function() {
+        this.props.actions.trainsActions.getTrains();
+    }.bind(this), 30000)
   }
 
   render() {

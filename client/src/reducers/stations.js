@@ -7,7 +7,7 @@ import { createReducer } from './createReducer';
 
 const initialState = {
     stations: [],
-    selectedStation: "R01",
+    selectedStation: localStorage.getItem('station') || "R01",
 };
 
 export default createReducer(initialState, {
